@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import "tailwindcss";
+:root{font-family:Inter,sans-serif;color:#111827;background:#f7f9fc}html{scroll-behavior:smooth}body{margin:0;overflow-x:hidden}.font-display{font-family:'Space Grotesk',sans-serif}.grid-bg{background-image:linear-gradient(rgba(255,255,255,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.055) 1px,transparent 1px);background-size:42px 42px}.clip-slant{clip-path:polygon(0 0,100% 0,92% 100%,0 100%)}.noise{background-image:radial-gradient(rgba(255,255,255,.10) .7px,transparent .7px);background-size:8px 8px}.reveal{content-visibility:auto;contain-intrinsic-size:800px}.focus-ring:focus-visible{outline:3px solid #d71920;outline-offset:3px}.line-clamp-2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+
+/* Motion system shared by all six pages. Applied progressively by RouteEffects. */
+.section-animated{opacity:0;transform:translate3d(0,36px,0);filter:blur(4px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1),filter .8s cubic-bezier(.22,1,.36,1)}
+.section-animated.section-in-view{opacity:1;transform:translate3d(0,0,0);filter:blur(0)}
+main a,main button{transition:transform .25s ease,box-shadow .25s ease,background-color .25s ease,color .25s ease}
+main a:active,main button:active{transform:scale(.98)}
+main img{transition:transform .65s cubic-bezier(.22,1,.36,1)}
+main a:hover>img,main button:hover>img{transform:scale(1.035)}
+@keyframes eram-accent-drift{0%,100%{transform:translateY(0) rotate(0deg)}50%{transform:translateY(-11px) rotate(5deg)}}
+.hero-orbit{animation:eram-accent-drift 9s ease-in-out infinite}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto!important}*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}.section-animated{opacity:1!important;transform:none!important;filter:none!important}}
+/* Viewer keyboard focus and safe-area protection on small touch devices. */
+[data-eram-lightbox] { padding-bottom: env(safe-area-inset-bottom,0px); }
+[data-eram-lightbox] button:focus-visible { outline: 3px solid #f87171; outline-offset: 3px; }
+
+/* The slider progresses while autoplay is running; motion preferences override it. */
+@keyframes eram-slide-progress {from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.eram-slide-progress{width:100%;transform-origin:left;animation-name:eram-slide-progress;animation-timing-function:linear;animation-fill-mode:forwards}
+@media(prefers-reduced-motion:reduce){.eram-slide-progress{animation:none!important}}
