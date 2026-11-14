@@ -26,3 +26,7 @@ main a:hover>img,main button:hover>img{transform:scale(1.035)}
 body{background:#f7f9fc}
 button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #f43f5e;outline-offset:3px}
 @media(min-width:1024px){#sector-explorer{scroll-margin-top:80px}}
+
+/* Performance: never hide important content while awaiting scroll observers. */
+.section-animated,.section-animated.section-in-view{opacity:1!important;transform:none!important;filter:none!important}
+@media (prefers-reduced-motion:reduce){.eram-chat-panel *{animation:none!important}}

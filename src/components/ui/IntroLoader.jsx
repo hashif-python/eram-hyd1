@@ -12,16 +12,16 @@ export default function IntroLoader(){
     const timer=window.setTimeout(()=>{
       try{sessionStorage.setItem('eram-v2-intro-shown','1');}catch{}
       setShow(false);
-    },reduce?180:1750);
+    },reduce?0:420);
     return()=>window.clearTimeout(timer);
   },[show,reduce]);
   return <AnimatePresence>{show&&<motion.div
     className="fixed inset-0 z-[110] overflow-hidden text-white"
     role="status" aria-label="Loading ERAM Hydraulics" aria-live="polite"
-    initial={{opacity:1}} exit={{opacity:0,transition:{duration:reduce?0:0.42,delay:reduce?0:0.18}}}
+    initial={{opacity:1}} exit={{opacity:0,transition:{duration:reduce?0:0.18,delay:0}}}
   >
-    <motion.div className="absolute inset-y-0 left-0 w-1/2 bg-[#071426]" exit={reduce?{}:{x:'-102%',transition:{duration:.62,ease:[.76,0,.24,1]}}}/>
-    <motion.div className="absolute inset-y-0 right-0 w-1/2 bg-[#0d233b]" exit={reduce?{}:{x:'102%',transition:{duration:.62,ease:[.76,0,.24,1]}}}/>
+    <motion.div className="absolute inset-y-0 left-0 w-1/2 bg-[#071426]" exit={reduce?{}:{x:'-102%',transition:{duration:.22,ease:[.76,0,.24,1]}}}/>
+    <motion.div className="absolute inset-y-0 right-0 w-1/2 bg-[#0d233b]" exit={reduce?{}:{x:'102%',transition:{duration:.22,ease:[.76,0,.24,1]}}}/>
     <div className="absolute inset-0 grid-bg opacity-35" aria-hidden="true"/>
     <motion.div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center" exit={{opacity:0,scale:.94,transition:{duration:.16}}}>
       <div className="relative flex h-44 w-44 items-center justify-center md:h-56 md:w-56" aria-hidden="true">

@@ -19,17 +19,7 @@ function RouteEffects(){
 }
 
 function AnimatedOutlet(){
-  const {pathname}=useLocation();
-  useEffect(()=>{
-    const sections=[...document.querySelectorAll('main section')];
-    const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if(reduce||!('IntersectionObserver' in window))return;
-    const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{
-      if(entry.isIntersecting){entry.target.classList.add('section-in-view');observer.unobserve(entry.target);}
-    }),{threshold:0.08,rootMargin:'0px 0px -30px 0px'});
-    sections.forEach((section,i)=>{if(i===0)return;section.classList.add('section-animated');observer.observe(section);});
-    return()=>observer.disconnect();
-  },[pathname]);
+  // Render content immediately; avoid hiding entire sections behind IntersectionObserver.
   return <Outlet/>;
 }
 
@@ -42,10 +32,10 @@ export default function Layout(){
     <AnimatePresence mode="wait" initial={false}>
       <motion.main
         key={location.pathname}
-        initial={reduce?false:{opacity:0,y:20,filter:'blur(5px)'}}
-        animate={{opacity:1,y:0,filter:'blur(0px)'}}
-        exit={reduce?undefined:{opacity:0,y:-14,filter:'blur(4px)'}}
-        transition={{duration:reduce?0:0.38,ease:[0.22,1,0.36,1]}}
+        initial={reduce?false:{opacity:0,y:8}}
+        animate={{opacity:1,y:0}}
+        exit={reduce?undefined:{opacity:0,y:-6}}
+        transition={{duration:reduce?0:0.16,ease:[0.22,1,0.36,1]}}
         className="pt-20"
       ><AnimatedOutlet/></motion.main>
     </AnimatePresence>

@@ -9,7 +9,7 @@ const banners={
   services:{photo:'https://www.eramhydraulics.com/images/products16.jpg',fallback:'https://www.eramhydraulics.com/images/products17.jpg',label:'Services / Engineering solutions',position:'center'},
   contact:{photo:'https://www.eramhydraulics.com/images/products13.jpg',fallback:'https://www.eramhydraulics.com/images/products12.jpg',label:'Contact / Our Saudi operations',position:'center'}
 };
-function BannerImage({config}){const [failed,setFailed]=useState(false);return <img src={failed?config.fallback:config.photo} onError={()=>setFailed(true)} alt="" aria-hidden="true" className="h-full w-full object-cover" style={{objectPosition:config.position}}/>}
+function BannerImage({config}){const [failed,setFailed]=useState(false);return <img src={failed?config.fallback:config.photo} onError={()=>setFailed(true)} alt="" aria-hidden="true" loading="eager" decoding="async" className="h-full w-full object-cover" style={{objectPosition:config.position}}/>}
 export default function PageHero({eyebrow,title,lead,variant='about'}){
   const reduce=useReducedMotion(),config=banners[variant]||banners.about;
   return <section className="relative isolate flex min-h-[470px] items-center overflow-hidden bg-[#071426] px-5 py-20 text-white md:min-h-[570px] md:py-28" aria-label={`${eyebrow} header`}>
