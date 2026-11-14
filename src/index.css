@@ -20,3 +20,9 @@ main a:hover>img,main button:hover>img{transform:scale(1.035)}
 @keyframes eram-slide-progress {from{transform:scaleX(0)}to{transform:scaleX(1)}}
 .eram-slide-progress{width:100%;transform-origin:left;animation-name:eram-slide-progress;animation-timing-function:linear;animation-fill-mode:forwards}
 @media(prefers-reduced-motion:reduce){.eram-slide-progress{animation:none!important}}
+
+/* Industrial editorial detail: independent from competitor site layout. */
+::selection{background:#d71920;color:#fff}
+body{background:#f7f9fc}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible{outline:3px solid #f43f5e;outline-offset:3px}
+@media(min-width:1024px){#sector-explorer{scroll-margin-top:80px}}

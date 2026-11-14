@@ -30,7 +30,7 @@ export default function IntroLoader(){
         <motion.div className="absolute inset-11 rotate-45 border border-[#D71920]/55" initial={{scale:.5,opacity:0}} animate={{scale:1,opacity:1}} transition={{delay:reduce?0:.15,duration:.6}}/>
         <motion.span className="font-display text-5xl font-bold tracking-[-.08em] md:text-6xl" initial={{opacity:0,scale:.65}} animate={{opacity:1,scale:1}} transition={{delay:reduce?0:.28,duration:.5}}>E<span className="text-[#D71920]">.</span></motion.span>
       </div>
-      <motion.img src="/logos/eram-mark.svg" alt="ERAM Hydraulics" className="mt-6 h-12 max-w-[230px] object-contain md:h-14" initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{delay:reduce?0:.45,duration:.5}}/>
+      <motion.div className="mt-6 rounded-xl bg-white px-5 py-3 shadow-[0_16px_60px_rgba(0,0,0,.3)]" initial={{opacity:0,y:20}} animate={{opacity:1,y:0}} transition={{delay:reduce?0:.45,duration:.5}}><img src="/logos/eram-logo.png" alt="ERAM Hydraulics official logo" className="h-auto w-[213px] max-w-[65vw] object-contain" width="213" height="71"/></motion.div>
       <motion.p className="mt-5 text-[10px] font-bold uppercase tracking-[.32em] text-slate-300 md:text-xs" initial={{opacity:0}} animate={{opacity:1}} transition={{delay:reduce?0:.65}}>Hydraulic engineering / Saudi Arabia</motion.p>
       <motion.div className="mt-10 flex items-center gap-2" aria-hidden="true" initial={{opacity:0}} animate={{opacity:1}} transition={{delay:reduce?0:.75}}>
         {[0,1,2,3,4].map(i=><motion.span key={i} className="h-1 w-6 skew-x-[-25deg] bg-[#D71920]" initial={{opacity:.14,scaleX:.4}} animate={{opacity:1,scaleX:1}} transition={{delay:reduce?0:.7+i*.12,duration:.24}}/>)}
