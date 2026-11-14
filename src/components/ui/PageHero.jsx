@@ -5,8 +5,8 @@ import {ArrowRight,Home} from 'lucide-react';
 
 const banners={
   about:{photo:'https://www.eramhydraulics.com/images/products12.jpg',fallback:'https://www.eramhydraulics.com/images/products13.jpg',label:'Company / Engineering heritage',position:'center 45%'},
-  products:{photo:'https://www.eramhydraulics.com/images/products17.jpg',fallback:'https://www.eramhydraulics.com/images/products16.jpg',label:'Products / Hydraulic systems',position:'center'},
-  services:{photo:'https://www.eramhydraulics.com/images/products16.jpg',fallback:'https://www.eramhydraulics.com/images/products17.jpg',label:'Services / Engineering solutions',position:'center'},
+  products:{photo:'/images/ai/hydraulic-power-unit.webp',fallback:'/images/ai/hydraulic-power-workshop.webp',label:'Products / Hydraulic systems',position:'center'},
+  services:{photo:'/images/ai/hydraulic-control-assembly.webp',fallback:'/images/ai/hydraulic-power-workshop.webp',label:'Services / Engineering solutions',position:'center'},
   contact:{photo:'https://www.eramhydraulics.com/images/products13.jpg',fallback:'https://www.eramhydraulics.com/images/products12.jpg',label:'Contact / Our Saudi operations',position:'center'}
 };
 function BannerImage({config}){const [failed,setFailed]=useState(false);return <img src={failed?config.fallback:config.photo} onError={()=>setFailed(true)} alt="" aria-hidden="true" loading="eager" decoding="async" className="h-full w-full object-cover" style={{objectPosition:config.position}}/>}

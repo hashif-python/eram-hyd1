@@ -4,14 +4,14 @@ import {Link} from 'react-router-dom';
 import {ArrowRight,ArrowUpRight,ChevronLeft,ChevronRight,Pause,Play} from 'lucide-react';
 import {company} from '../../data/content';
 
-// Photography shows industrial contexts, and should not be interpreted as a specific ERAM project.
+// AI-generated product imagery is illustrative, not photography of ERAM premises, staff or completed projects.
 const slides=[
-  {eyebrow:'ERAM HYDRAULICS / ENGINEERING',title:'Engineering Power.',accent:'Delivering Precision.',description:company.summary,photo:'https://www.eramhydraulics.com/images/products16.jpg',fallback:'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2000&q=85',label:'Industrial engineering',link:'/services',cta:'Explore our solutions',position:'center'},
+  {eyebrow:'ERAM HYDRAULICS / ENGINEERING',title:'Engineering Power.',accent:'Delivering Precision.',description:company.summary,photo:'/images/ai/hydraulic-power-workshop.webp',fallback:'/images/ai/hydraulic-power-unit.webp',label:'Industrial engineering',link:'/services',cta:'Explore our solutions',position:'center'},
   {eyebrow:'OFFSHORE + ONSHORE',title:'Power for',accent:'critical operations.',description:'Hydraulic engineering for demanding energy applications, including lifting, handling, skidding and service operations.',photo:'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=2000&q=85',fallback:'https://www.eramhydraulics.com/images/products17.jpg',label:'Offshore & onshore solutions',link:'/services',cta:'Discover the services',position:'center'},
-  {eyebrow:'COMPONENTS + MANUFACTURING',title:'Made to move.',accent:'Built to perform.',description:'Explore hydraulic power packs, cylinders, components, lubrication and filtration solutions for demanding operating environments.',photo:'https://www.eramhydraulics.com/images/products17.jpg',fallback:'https://images.unsplash.com/photo-1581092160562-40aa08e78837?auto=format&fit=crop&w=2000&q=85',label:'Products & systems',link:'/products',cta:'View our products',position:'center'}
+  {eyebrow:'COMPONENTS + MANUFACTURING',title:'Made to move.',accent:'Built to perform.',description:'Explore hydraulic power packs, cylinders, components, lubrication and filtration solutions for demanding operating environments.',photo:'/images/ai/hydraulic-cylinders.webp',fallback:'/images/ai/hydraulic-power-workshop.webp',label:'Products & systems',link:'/products',cta:'View our products',position:'center'}
 ];
 const DURATION=6500;
-function SlideVisual({slide}){const [failed,setFailed]=useState(false);return <img key={slide.photo} src={failed?slide.fallback:slide.photo} onError={()=>setFailed(true)} alt="" aria-hidden="true" className="absolute inset-0 h-full w-full object-cover" style={{objectPosition:slide.position}}/>}
+function SlideVisual({slide}){const [failed,setFailed]=useState(false);return <img key={slide.photo} src={failed?slide.fallback:slide.photo} onError={()=>setFailed(true)} alt="" aria-hidden="true" decoding="async" className="absolute inset-0 h-full w-full object-cover" style={{objectPosition:slide.position}}/>}
 export default function HeroSlider(){
   const [index,setIndex]=useState(0),[playing,setPlaying]=useState(true),[progressKey,setProgressKey]=useState(0);
   const reduce=useReducedMotion(),hover=useRef(false);
